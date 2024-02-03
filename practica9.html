@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica 9</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/logo.svg" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/practica.css" rel="stylesheet" />
+
+    <script>
+        L_NO_TOUCH = false;
+        L_DISABLE_3D = false;
+    </script>
+
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+
+
+    <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_f0a94284011a9ccb1af4977fbf48694d {
+                    position: absolute;
+                    width: 50.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_294dc515f8755a22a4afb3a17bc97cdd {
+                    position: absolute;
+                    width: 50.0%;
+                    height: 100.0%;
+                    left: 50.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/jieter/Leaflet.Sync/L.Map.Sync.min.js"></script>
+
+</head>
+<body>
+    <!-- Header-->
+    <header class="bg-dark py-5">
+        <div class="container px-3 px-lg-3 my-0">
+            <div class="text-center text-white">
+                <p class="titulo display-4">Práctica 9</p>
+            </div>
+            <a class="atras" href="index.html">Atras</a>
+        </div>
+    </header>
+
+    <section class="mapa">
+        <div class="folium-map" id="map_f0a94284011a9ccb1af4977fbf48694d" ></div>
+        <div class="folium-map" id="map_294dc515f8755a22a4afb3a17bc97cdd" ></div>
+    </section>
+    
+</body>
+
+<script>
+    
+    
+    var map_f0a94284011a9ccb1af4977fbf48694d = L.map(
+        "map_f0a94284011a9ccb1af4977fbf48694d",
+        {
+            center: [39.0, -0.3],
+            crs: L.CRS.EPSG3857,
+            zoom: 12,
+            zoomControl: true,
+            preferCanvas: false,
+        }
+    );
+
+    
+
+
+
+    var tile_layer_9f5df16abc94eec28c7b57b0486cee2a = L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+    ).addTo(map_f0a94284011a9ccb1af4977fbf48694d);
+
+
+    var tile_layer_be14c8630e100a05c13f6af49ac24ea0 = L.tileLayer(
+        "https://earthengine.googleapis.com/v1/projects/earthengine-legacy/maps/971be14af7775f28308e5e7eeeeb0040-26d91b2c0584186858a8cac55a579253/tiles/{z}/{x}/{y}",
+        {"attribution": "PascualCodoner", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+    ).addTo(map_f0a94284011a9ccb1af4977fbf48694d);
+
+
+    var tile_layer_e90667174932494a66e4eba5fbd58cf4 = L.tileLayer(
+        "https://earthengine.googleapis.com/v1/projects/earthengine-legacy/maps/ceade62cc2c807c12a3a9d3c2c37fb1b-9abd17cfa333b88ed18c2af8f0e037d8/tiles/{z}/{x}/{y}",
+        {"attribution": "PascualCodoner", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+    ).addTo(map_f0a94284011a9ccb1af4977fbf48694d);
+
+
+    var layer_control_5bf8ee11e04e963e5275ccc4e3c6638f = {
+        base_layers : {
+            "openstreetmap" : tile_layer_9f5df16abc94eec28c7b57b0486cee2a,
+        },
+        overlays :  {
+            "SAVI_pre" : tile_layer_be14c8630e100a05c13f6af49ac24ea0,
+            "SAVI_post" : tile_layer_e90667174932494a66e4eba5fbd58cf4,
+        },
+    };
+    L.control.layers(
+        layer_control_5bf8ee11e04e963e5275ccc4e3c6638f.base_layers,
+        layer_control_5bf8ee11e04e963e5275ccc4e3c6638f.overlays,
+        {"autoZIndex": true, "collapsed": true, "position": "topright"}
+    ).addTo(map_f0a94284011a9ccb1af4977fbf48694d);
+
+
+    var map_294dc515f8755a22a4afb3a17bc97cdd = L.map(
+        "map_294dc515f8755a22a4afb3a17bc97cdd",
+        {
+            center: [39.0, -0.3],
+            crs: L.CRS.EPSG3857,
+            zoom: 12,
+            zoomControl: true,
+            preferCanvas: false,
+        }
+    );
+
+    
+
+
+
+    var tile_layer_34a0c99e1188b9fbb5d9151781d341f5 = L.tileLayer(
+        "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+        {"attribution": "\u0026copy; \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca target=\"_blank\" href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca target=\"_blank\" href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+    ).addTo(map_294dc515f8755a22a4afb3a17bc97cdd);
+
+
+    var tile_layer_962da0652d934e5a7fa3b4123d4d2b6a = L.tileLayer(
+        "https://earthengine.googleapis.com/v1/projects/earthengine-legacy/maps/29fd11d31198541cce773256135165a0-6632bc148565deeb0088d6c85c9fea98/tiles/{z}/{x}/{y}",
+        {"attribution": "PascualCodoner", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+    ).addTo(map_294dc515f8755a22a4afb3a17bc97cdd);
+
+
+    var tile_layer_de59f8ec7a92a7049fe7dc1bdf016621 = L.tileLayer(
+        "https://earthengine.googleapis.com/v1/projects/earthengine-legacy/maps/583e3a1b755dbba463f59b55278758b3-f7cb55a03fcbd1a0ee60f5ebba652a70/tiles/{z}/{x}/{y}",
+        {"attribution": "PascualCodoner", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+    ).addTo(map_294dc515f8755a22a4afb3a17bc97cdd);
+
+
+    map_f0a94284011a9ccb1af4977fbf48694d.sync(map_294dc515f8755a22a4afb3a17bc97cdd);
+    map_294dc515f8755a22a4afb3a17bc97cdd.sync(map_f0a94284011a9ccb1af4977fbf48694d);
+
+
+    var layer_control_f12eca540a064c63a0e2e0619224283e = {
+        base_layers : {
+            "cartodbpositron" : tile_layer_34a0c99e1188b9fbb5d9151781d341f5,
+        },
+        overlays :  {
+            "EVI_pre" : tile_layer_962da0652d934e5a7fa3b4123d4d2b6a,
+            "EVI_post" : tile_layer_de59f8ec7a92a7049fe7dc1bdf016621,
+        },
+    };
+    L.control.layers(
+        layer_control_f12eca540a064c63a0e2e0619224283e.base_layers,
+        layer_control_f12eca540a064c63a0e2e0619224283e.overlays,
+        {"autoZIndex": true, "collapsed": true, "position": "topright"}
+    ).addTo(map_294dc515f8755a22a4afb3a17bc97cdd);
+
+</script>
+</html>

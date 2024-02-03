@@ -1,0 +1,115 @@
+header {
+    position: relative;
+    height: 10vh;
+}
+#particles-js {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+::-webkit-scrollbar {
+    width: 12px; 
+}
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #adadad;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #838383;
+    transition: 0.3s;
+}
+
+.titulo{
+    font-size: 30px;
+}
+
+.atras{
+    position: relative;
+    left: -60px;
+    top: -43px;
+    color: white;
+    text-decoration: none;
+}
+
+.atras:hover{
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+header .container{
+    position: relative;
+    top: -20px;
+}
+
+th{
+    text-align: center;
+}
+
+section{
+    margin-top: 20px;
+    width: 90%;
+    display: flex;
+    margin: 0 auto;
+}
+
+.imagen{
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.imagen img{
+    width: 100%;
+}
+
+.imagen2{
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.botones{
+    margin-top: 20px;
+}
+
+.botones a{
+    margin-right: 10px;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    background-color: #fff;
+    border: 2px solid #333;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.botones a:hover {
+    background-color: #333;
+    color: #fff !important;
+    cursor: pointer;
+}
+
+#map{
+    width: 100% !important;
+    height: calc(100vh - 96px) !important;
+}
+
+#map div div div canvas{
+    width: 100%; 
+}
+
+.img-fluid{
+        width: 600px;
+}
+
+.folium-map{
+    margin-top: 96px;
+}
+
+.folium-map2{
+    margin-top: 0px !important;
+}
